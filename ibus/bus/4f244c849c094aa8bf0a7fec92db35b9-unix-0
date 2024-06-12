@@ -1,0 +1,7 @@
+# This file is created by ibus-daemon, please do not modify it.
+# This file allows processes on the machine to find the
+# ibus session bus with the below address.
+# If the IBUS_ADDRESS environment variable is set, it will
+# be used rather than this file.
+IBUS_ADDRESS=unix:path=/home/warmdev/.cache/ibus/dbus-XdwhURDt,guid=e2384de0a317c534309ac85a6669d369
+IBUS_DAEMON_PID=921
