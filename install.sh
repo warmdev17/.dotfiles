@@ -23,6 +23,7 @@ echo "Make sure you have created a backup of your system before installing dotfi
 echo ""
 
 sudo pacman -Syu --noconfirm
+sudo pacman -Sy gum --noconfirm
 
 source ./.install/package.sh
 source ./.install/neovim.sh

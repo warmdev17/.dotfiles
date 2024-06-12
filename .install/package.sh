@@ -1,11 +1,5 @@
 package_install() {
-	if [ -f pacman_packages.txt ]; then
-		echo "Installing pacman packages..."
-		sudo pacman -S --needed - <pacman_packages.txt
-	else
-		echo "pacman_packages.txt not found!"
-	fi
-
+	#
 	# Install yay
 	if ! command -v yay &>/dev/null; then
 		echo "yay not found, installing yay..."
@@ -55,3 +49,5 @@ else
 	echo ":: Installation canceled."
 	exit
 fi
+
+package_install
