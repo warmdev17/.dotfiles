@@ -32,8 +32,13 @@ alias rm='rm -rf'
 
 alias ls='eza -a --icons'
 alias ll='eza -al --icons'
-alias lt='eza -a --tree --level=1 --icons'
-
+function lt
+    if test (pwd) = $HOME
+        eza -a --icons --tree --level=1
+    else
+        eza -a --icons --tree
+    end
+end
 alias shutdown='systemctl poweroff'
 
 alias nc='cd ~/.config/nvim'
