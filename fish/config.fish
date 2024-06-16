@@ -15,7 +15,6 @@ set -gx GLFW_IM_MODULE ibus
 
 oh-my-posh init fish --config ~/catppuccin_mocha.omp.json | source
 zoxide init fish | source
-nerdfetch
 # cat ~/.cache/wal/sequences
 
 
@@ -158,3 +157,13 @@ alias fbn="fzf --preview 'bat --style=numbers --color=always {}' | xargs -n 1 nv
 
 bind \co accept-autosuggestion
 bind \cq exit
+bind \ce yy
+
+function yy
+    set tmp (mktemp -t "yazi-cwd.XXXXXX")
+    yazi $argv --cwd-file="$tmp"
+    if set cwd (cat -- "$tmp"); and [ -n "$cwd" ]; and [ "$cwd" != "$PWD" ]
+        cd -- "$cwd"
+    end
+    rm -f -- "$tmp"
+end

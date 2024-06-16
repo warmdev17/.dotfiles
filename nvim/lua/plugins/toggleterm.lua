@@ -3,7 +3,7 @@ return {
     "akinsho/toggleterm.nvim",
     opts = {
       direction = "float",
-      open_mapping = "<c-c>",
+      open_mapping = "<c-t>",
       start_in_insert = true,
       auto_scroll = true,
       shade_terminals = false,
