@@ -13,6 +13,7 @@ return {
         "emmet-language-server",
         "clang-format",
         "google-java-format",
+        "arduino-language-server",
         -- "java-language-server",
         -- "jdtls",
       })
