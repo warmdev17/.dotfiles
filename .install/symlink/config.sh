@@ -11,6 +11,7 @@ _installSymLink polybar $CD/polybar $DD/polybar $CD/polybar
 _installSymLink picom $CD/picom $DD/picom $CD/picom
 _installSymLink rofi $CD/rofi $DD/rofi $CD/rofi
 _installSymLink bat $CD/bat $DD/bat $CD/bat
+_installSymLink yazi $CD/yazi $DD/yazi $CD/yazi
 
 # copy
 # mv $DD/tmux/* ~/
