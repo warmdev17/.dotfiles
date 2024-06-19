@@ -10,9 +10,6 @@ return {
       shell = "fish",
       float_opts = {
         border = "curved",
-        highlights = {
-          background = "#002c38",
-        },
       },
     },
   },
