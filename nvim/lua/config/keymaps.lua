@@ -82,4 +82,4 @@ map("n", "<C-q>", ":q<Return>", opts)
 map("n", "M", vim.lsp.buf.hover, opts)
 
 vim.keymap.del("n", "<c-/>")
-map("n", "<C-t>", ":ToggleTerm name=Terminal<Return>", opts)
+map("n", "<leader>cb", ":TermExec cmd='g++ -o %< % && ./%<'<Return>", opts)
