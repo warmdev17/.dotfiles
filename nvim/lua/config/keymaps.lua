@@ -4,16 +4,16 @@
 local map = vim.keymap.set
 local opts = { noremap = true, silent = true }
 
--- quick save
+-- Quick save
 map("n", "<C-s>", ":w<Return>")
 
--- reload
+-- Reload
 map("n", "<F5>", ":source%<Return>", { silent = true })
 
--- redo
+-- Redo
 map("n", "r", ":redo<CR>", opts)
 
--- movement key
+-- Movement key
 map({ "n", "v" }, "j", "jzz")
 map({ "n", "v" }, "k", "kzz")
 
@@ -22,39 +22,39 @@ map({ "n", "v" }, "J", "5jzz")
 map({ "n", "v" }, "K", "5kzz")
 map({ "n", "v" }, "L", "5l")
 
--- do not yank with x
+-- Do not yank with x
 map({ "n", "v" }, "x", '"_x')
 
--- delete line
+-- Delete line
 map("n", "<leader>d", "dd")
 
--- increment/ decrement
+-- Increment/ decrement
 map("n", "+", "<C-a>")
 map("n", "-", "<C-x>")
 
--- delete a word backwards
+-- Delete a word backwards
 map("n", "dw", 'vb"_d')
 
--- select all
+-- Select all
 map("n", "<C-a>", "gg<S-v>G")
 map("i", "<C-a>", "<Esc>gg<S-v>G")
 
--- jumplist
+-- Jumplist
 map("n", "<C-m>", "<C-i>", opts)
 
--- tab control
+-- Tab control
 map("n", "te", ":tabedit<Return>", opts)
 map("n", "<tab>", ":tabnext<Return>", opts)
 map("n", "<s-tab>", ":tabprev<Return>", opts)
--- buffer control
+-- Buffer control
 map("n", "<tab>", ":bnext<Return>", opts)
 map("n", "<s-tab>", ":bprev<Return>", opts)
 
--- split window
+-- Split window
 map("n", "ss", ":split<Return><C-w>w", opts)
 map("n", "sv", ":vsplit<Return><C-w>w", opts)
 
--- move window
+-- Move window
 map("", "sh", "<C-w>h")
 map("", "sj", "<C-w>j")
 map("", "sk", "<C-w>k")
@@ -66,15 +66,15 @@ map("n", "<C-w><right>", "<C-w>>")
 map("n", "<C-w><up>", "<C-w>+")
 map("n", "<C-w><down>", "<C-w>-")
 
---buffer
+--Buffer
 map("n", "bd", ":bd<Return>", opts)
 
--- diagnostic
+-- Diagnostic
 map("n", "<C-d>", function()
   vim.diagnostic.goto_next()
 end, opts)
 
--- quick quit
+-- Quick quit
 map("n", "<C-q>", ":q<Return>", opts)
 
 -- Wrap selected text in single quotes
