@@ -26,11 +26,29 @@ alias pacman='sudo pacman'
 alias reload='exec fish'
 alias dev='cd ~/Workspace/'
 alias home='cd ~'
-
 alias rm='rm -rf'
-
 alias ls='eza -a --icons'
 alias ll='eza -al --icons'
+# git alias
+alias gs="git status"
+alias ga="git add"
+alias gc="git commit -m"
+alias gp="git push"
+alias gpl="git pull"
+alias gst="git stash"
+alias gsp="git stash
+        git pull"
+alias gcheck="git checkout"
+alias gcredential="git config credential.helper store"
+
+alias shutdown='systemctl poweroff'
+
+alias nc='cd ~/.config/nvim'
+# brew
+alias bi='brew install'
+alias bu='brew upgrade'
+alias bui='brew uninstall'
+alias bri='brew reinstall'
 function lt
     if test (pwd) = $HOME
         eza -a --icons --tree --level=1
@@ -38,9 +56,6 @@ function lt
         eza -a --icons --tree
     end
 end
-alias shutdown='systemctl poweroff'
-
-alias nc='cd ~/.config/nvim'
 
 # tmux quick sessions open
 function ta
@@ -59,31 +74,6 @@ function tk
     tmux kill-session -t $argv
 end
 
-# git alias
-alias gs="git status"
-alias ga="git add"
-alias gc="git commit -m"
-alias gp="git push"
-alias gpl="git pull"
-alias gst="git stash"
-alias gsp="git stash
-        git pull"
-alias gcheck="git checkout"
-alias gcredential="git config credential.helper store"
-
-# wifi connect alias
-alias wifi_list='nmcli device wifi list'
-alias wifi_rescan='nmcli device wifi rescan'
-
-function wifi_connect
-    nmcli device wifi connect $argv[1] password $argv[2]
-end
-
-# brew
-alias bi='brew install'
-alias bu='brew upgrade'
-alias bui='brew uninstall'
-alias bri='brew reinstall'
 
 
 # g++ build
@@ -158,6 +148,7 @@ alias fbn="fzf --preview 'bat --style=numbers --color=always {}' | xargs -n 1 nv
 bind \co accept-autosuggestion
 bind \cq exit
 bind \ce yy
+bind \cl lazygit
 
 function yy
     set tmp (mktemp -t "yazi-cwd.XXXXXX")
