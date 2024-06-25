@@ -78,19 +78,7 @@ end
 
 # g++ build
 function build
-    g++ -o $argv[1] $argv[2]
-end
-
-# g++ build and run
-function bar
-    if test -e "$argv[1]"
-        rm -rf $argv[1]
-        g++ -o $argv[1] $argv[2]
-        ./$argv[1]
-    else
-        g++ -o $argv[1] $argv[2]
-        ./$argv[1]
-    end
+    g++ -o $argv[1] $argv[2] && ./$argv[1]
 end
 
 # java build and run
@@ -100,22 +88,7 @@ end
 
 # g++ build with lib
 function buildwl
-    g++ -o $argv[1] $argv[2] -l$argv[3] -l$argv[4] -l$argv[5]
-end
-
-function buildwlar
-    g++ -o $argv[1] $argv[2] -l$argv[3] -l$argv[4] -l$argv[5]
-    ./$argv[1]
-end
-
-function tfe
-    if test -e "$argv"
-        # The file exists, so do something here
-        echo "File '$argv' exists."
-    else
-        # The file doesn't exist, so do something else here
-        echo "File '$argv' does not exist."
-    end
+    g++ -o $argv[1] $argv[2] -l$argv[3] -l$argv[4] -l$argv[5] && ./$argv[1]
 end
 
 function yt-dl

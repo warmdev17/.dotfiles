@@ -66,6 +66,7 @@ timeout = 2
 [urgency_normal]
 background = "#24273a"
 foreground = "#cdd6f4"
+script = ~/.dotfiles/scripts/notification.sh
 timeout = 2
 
 [urgency_critical]
