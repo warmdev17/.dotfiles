@@ -1,4 +1,5 @@
 [global]
+timeout = 2
 monitor = 0
 follow = none
 width = 300
