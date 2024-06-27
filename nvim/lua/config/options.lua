@@ -14,6 +14,7 @@ vim.o.cursorline = true
 vim.o.linespace = 200
 vim.o.clipboard = "unnamedplus"
 vim.o.smoothscroll = true
+vim.o.showtabline = 2
 
 -- Define the SetBackgroundColor function globally
 _G.SetBackgroundColor = function()

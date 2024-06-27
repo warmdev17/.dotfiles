@@ -1,38 +1,4 @@
 return {
-  -- floating winbar
-  {
-    "b0o/incline.nvim",
-    event = "BufReadPre",
-    enabled = false,
-    config = function()
-      local colors = require("tokyonight.colors").setup()
-      require("incline").setup({
-        window = {
-          padding = 0,
-          margin = { horizontal = 0 },
-        },
-        render = function(props)
-          local filename = vim.fn.fnamemodify(vim.api.nvim_buf_get_name(props.buf), ":t")
-          if filename == "" then
-            filename = "[No Name]"
-          end
-          local ft_icon, ft_color = require("nvim-web-devicons").get_icon_color(filename)
-          local modified = vim.bo[props.buf].modified
-          return {
-            ft_icon
-                and { " ", ft_icon, " ", guibg = ft_color, guifg = require("incline.helpers").contrast_color(ft_color) }
-              or "",
-            " ",
-            { filename, gui = modified and "bold,italic" or "bold" },
-            " ",
-
-            guibg = "#44406e",
-          }
-        end,
-      })
-    end,
-  },
-
   "folke/twilight.nvim",
   {
     "folke/zen-mode.nvim",
@@ -54,8 +20,11 @@ return {
     optional = true,
     opts = {
       options = {
+        icons_enabled = true,
+        icon_only = true,
         theme = "catppuccin",
-        section_separators = { left = "", right = "" },
+        section_separators = { left = "", right = "" },
+        component_separators = { left = "", right = "" },
         refresh = {
           statusline = 1000,
           tabline = 1000,
@@ -64,13 +33,22 @@ return {
         disabled_filetypes = { statusline = { "dashboard", "alpha", "starter" } },
       },
       sections = {
-        lualine_a = { "mode" },
-        lualine_b = { "branch", "diff", "diagnostics" },
-        lualine_c = { "filename" },
+        lualine_a = { { "mode", icons_enabled = true, icon = "", separator = "" } },
+        lualine_b = { "filename" },
+        lualine_c = { "branch", "diff", "diagnostics" },
         lualine_x = { "encoding", "fileformat", "filetype" },
         lualine_y = { "progress" },
         lualine_z = { "location" },
       },
+      inactive_sections = {
+        lualine_a = {},
+        lualine_b = {},
+        lualine_c = { "filename" },
+        lualine_x = { "location" },
+        lualine_y = {},
+        lualine_z = {},
+      },
+      tabline = {},
     },
   },
   {
