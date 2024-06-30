@@ -12,10 +12,13 @@ set -gx GTK_IM_MODULE ibus
 set -gx QT_IM_MODULE ibus
 set -gx XMODIFIERS @im=ibus
 set -gx GLFW_IM_MODULE ibus
+set -Ux FZF_DEFAULT_OPTS "\
+--color=bg+:#313244,bg:#1e1e2e,spinner:#f5e0dc,hl:#f38ba8 \
+--color=fg:#cdd6f4,header:#f38ba8,info:#cba6f7,pointer:#f5e0dc \
+--color=marker:#f5e0dc,fg+:#cdd6f4,prompt:#cba6f7,hl+:#f38ba8"
 
 oh-my-posh init fish --config ~/catppuccin_mocha.omp.json | source
 zoxide init fish | source
-# cat ~/.cache/wal/sequences
 
 
 # alias
@@ -78,7 +81,7 @@ end
 
 # g++ build
 function build
-    g++ -o $argv[1] $argv[2] && ./$argv[1]
+    g++ -o $argv $argv.cpp && ./$argv
 end
 
 # java build and run
@@ -130,4 +133,11 @@ function yy
         cd -- "$cwd"
     end
     rm -f -- "$tmp"
+end
+
+function zox
+    set dir (zoxide query -l | fzf --height 40% --reverse --ansi )
+    if test -n "$dir"
+        cd "$dir"
+    end
 end

@@ -2,6 +2,7 @@ return {
   {
     "akinsho/toggleterm.nvim",
     opts = {
+      size = 30,
       direction = "float",
       open_mapping = "<c-t>",
       start_in_insert = true,

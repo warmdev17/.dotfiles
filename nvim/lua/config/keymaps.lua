@@ -5,10 +5,10 @@ local map = vim.keymap.set
 local opts = { noremap = true, silent = true }
 
 -- Quick save
-map("n", "<C-s>", ":w<Return>")
+map("n", "<C-s>", ":w<CR>")
 
 -- Reload
-map("n", "<F5>", ":source%<Return>", { silent = true })
+map("n", "<F5>", ":source%<CR>", { silent = true })
 
 -- Redo
 map("n", "r", ":redo<CR>", opts)
@@ -39,20 +39,20 @@ map("n", "dw", 'vb"_d')
 map("n", "<C-a>", "gg<S-v>G")
 map("i", "<C-a>", "<Esc>gg<S-v>G")
 
--- Jumplist
+-- Jump list
 map("n", "<C-m>", "<C-i>", opts)
 
 -- Tab control
-map("n", "te", ":tabedit<Return>", opts)
-map("n", "<tab>", ":tabnext<Return>", opts)
-map("n", "<s-tab>", ":tabprev<Return>", opts)
+map("n", "te", ":tabedit<CR>", opts)
+map("n", "<tab>", ":tabnext<CR>", opts)
+map("n", "<s-tab>", ":tabprev<CR>", opts)
 -- Buffer control
-map("n", "<tab>", ":bnext<Return>", opts)
-map("n", "<s-tab>", ":bprev<Return>", opts)
+map("n", "<tab>", ":bnext<CR>", opts)
+map("n", "<s-tab>", ":bprev<CR>", opts)
 
 -- Split window
-map("n", "ss", ":split<Return><C-w>w", opts)
-map("n", "sv", ":vsplit<Return><C-w>w", opts)
+map("n", "ss", ":split<CR><C-w>w", opts)
+map("n", "sv", ":vsplit<CR><C-w>w", opts)
 
 -- Move window
 map("", "sh", "<C-w>h")
@@ -67,7 +67,7 @@ map("n", "<C-w><up>", "<C-w>+")
 map("n", "<C-w><down>", "<C-w>-")
 
 --Buffer
-map("n", "bd", ":bd<Return>", opts)
+map("n", "bd", ":bd<CR>", opts)
 
 -- Diagnostic
 map("n", "<C-d>", function()
@@ -75,11 +75,21 @@ map("n", "<C-d>", function()
 end, opts)
 
 -- Quick quit
-map("n", "<C-q>", ":q<Return>", opts)
+map("n", "<C-q>", ":q<CR>", opts)
 
 -- Wrap selected text in single quotes
 
 map("n", "M", vim.lsp.buf.hover, opts)
 
 vim.keymap.del("n", "<c-/>")
-map("n", "<leader>cb", ":TermExec cmd='build %< %'<Return>")
+map("n", "<leader>cb", ":TermExec cmd='build %< %'<CR>")
+
+-- Arduino key maps
+map("n", "<leader>ac", function()
+  local dir = vim.fn.getcwd()
+  vim.cmd("TermExec cmd='arduino-cli compile -b arduino:avr:uno " .. dir .. "'<CR>")
+end, { desc = "Arduino Compile" })
+
+map("n", "<leader>au", ":TermExec cmd='arduino-cli upload'<CR><c-t>", { desc = "Arduino Upload" })
+
+map("n", "<leader>am", ":TermExec cmd='arduino-cli monitor -p /dev/ttyUSB0'<CR>", { desc = "Arduino Serial" })
