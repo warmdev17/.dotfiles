@@ -125,6 +125,7 @@ bind \co accept-autosuggestion
 bind \cq exit
 bind \ce yy
 bind \cl lazygit
+bind \cz zox
 
 function yy
     set tmp (mktemp -t "yazi-cwd.XXXXXX")

@@ -90,6 +90,6 @@ map("n", "<leader>ac", function()
   vim.cmd("TermExec cmd='arduino-cli compile -b arduino:avr:uno " .. dir .. "'<CR>")
 end, { desc = "Arduino Compile" })
 
-map("n", "<leader>au", ":TermExec cmd='arduino-cli upload'<CR><c-t>", { desc = "Arduino Upload" })
+map("n", "<leader>au", ":TermExec cmd='arduino-cli upload'<CR>", { desc = "Arduino Upload" })
 
 map("n", "<leader>am", ":TermExec cmd='arduino-cli monitor -p /dev/ttyUSB0'<CR>", { desc = "Arduino Serial" })
