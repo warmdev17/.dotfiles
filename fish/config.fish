@@ -3,7 +3,7 @@ if status is-interactive
 end
 
 set fish_greeting
-set -U EDITOR vim
+set -U EDITOR nvim
 set -U SHELL fish
 set -gx PATH /home/linuxbrew/.linuxbrew/bin $PATH
 set -Ux HOMEBREW_NO_INSTALL_CLEANUP 1
@@ -17,9 +17,8 @@ set -Ux FZF_DEFAULT_OPTS "\
 --color=fg:#cdd6f4,header:#f38ba8,info:#cba6f7,pointer:#f5e0dc \
 --color=marker:#f5e0dc,fg+:#cdd6f4,prompt:#cba6f7,hl+:#f38ba8"
 
-oh-my-posh init fish --config ~/catppuccin_mocha.omp.json | source
+oh-my-posh init fish --config ~/catppuccin_mocha_test.omp.json | source
 zoxide init fish | source
-
 
 # alias
 alias vim='nvim'
@@ -76,8 +75,6 @@ end
 function tk
     tmux kill-session -t $argv
 end
-
-
 
 # g++ build
 function build
@@ -141,4 +138,18 @@ function zox
     if test -n "$dir"
         cd "$dir"
     end
+end
+
+function sdv
+    sudo env XDG_CONFIG_HOME=$HOME/.config nvim $argv
+end
+
+function livestream
+    sudo modprobe v4l2loopback
+    scrcpy --video-source=camera --camera-size=1920x1080 --camera-facing=back --v4l2-sink=/dev/video0 --no-audio --no-playback --max-fps=60
+end
+
+# alias for sddm debug
+function debug
+    sddm-greeter --test-mode --theme /usr/share/sddm/themes/citlali
 end

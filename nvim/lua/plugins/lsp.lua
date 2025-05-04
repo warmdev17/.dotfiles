@@ -27,6 +27,7 @@ return {
       keys[#keys + 1] = { "K", false }
     end,
     opts = {
+      require("lspconfig").arduino_language_server.setup({}),
       setup = {
         clangd = function(_, opts)
           opts.capabilities.offsetEncoding = { "utf-16" }

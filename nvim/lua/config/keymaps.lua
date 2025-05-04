@@ -2,6 +2,7 @@
 -- Default keymaps that are always set: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/keymaps.lua
 -- Add any additional keymaps here
 local map = vim.keymap.set
+local delete = vim.keymap.del
 local opts = { noremap = true, silent = true }
 
 -- Quick save
@@ -82,7 +83,7 @@ map("n", "<C-q>", ":q<CR>", opts)
 map("n", "M", vim.lsp.buf.hover, opts)
 
 vim.keymap.del("n", "<c-/>")
-map("n", "<leader>cb", ":TermExec cmd='build %< %'<CR>")
+map("n", "<leader>cb", ":TermExec cmd='build %<'<CR>", { desc = "g++ build and run" })
 
 -- Arduino key maps
 map("n", "<leader>ac", function()
@@ -93,3 +94,5 @@ end, { desc = "Arduino Compile" })
 map("n", "<leader>au", ":TermExec cmd='arduino-cli upload'<CR>", { desc = "Arduino Upload" })
 
 map("n", "<leader>am", ":TermExec cmd='arduino-cli monitor -p /dev/ttyUSB0'<CR>", { desc = "Arduino Serial" })
+
+vim.api.nvim_set_keymap("n", "K", "5kzz", { noremap = true, silent = true })

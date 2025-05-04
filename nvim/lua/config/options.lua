@@ -7,12 +7,11 @@ vim.cmd([[let&t_Cs = "\e[4:3m]"]])
 vim.cmd([[let&t_Ce = "\e[4:0m]"]])
 
 vim.o.relativenumber = true
-vim.o.showmode = true
-vim.o.cmdheight = 10
+vim.o.cmdheight = 1
 vim.o.shell = "/bin/fish"
 vim.o.cursorline = true
 vim.o.linespace = 200
-vim.o.clipboard = "unnamedplus"
+vim.o.clipboard = vim.env.SSH_TTY and "" or "unnamedplus"
 vim.o.smoothscroll = true
 vim.o.showtabline = 2
 

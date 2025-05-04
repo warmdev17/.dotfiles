@@ -1,0 +1,10 @@
+{
+  "Say hello to the world": {
+    "prefix": ["hw", "hello"],
+    "body": "console.log('Hello world')"
+  },
+  "Hello warmdev": {
+    "prefix": ["warmdev"],
+    "body": "console.log('hello warmdev')"
+  }
+}

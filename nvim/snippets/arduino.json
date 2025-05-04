@@ -1,0 +1,6 @@
+{
+  "Serial begin": {
+    "prefix": "sbeg",
+    "body": "Serial.begin(9600);"
+  }
+}

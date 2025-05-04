@@ -5,6 +5,7 @@ return {
     cmdline = {
       view = "cmdline_popup",
       enabled = true,
+      opts = {}, -- Global options for the cmdline. See section on views
     },
     lsp = {
       override = {
